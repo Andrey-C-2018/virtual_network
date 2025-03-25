@@ -7,5 +7,6 @@ qemu-system-x86_64 \
   -smp 2 \
   -hda mikrotik-chr_router.qcow2 \
   -netdev tap,id=eth0,ifname=tap-router-eth0,script=no,downscript=no -device e1000,netdev=eth0,mac=52:54:00:11:11:11 \
+  -netdev user,id=eth1,hostfwd=tcp::8291-:8291 -device e1000,netdev=eth1 \
   -nographic \
   -serial mon:stdio
