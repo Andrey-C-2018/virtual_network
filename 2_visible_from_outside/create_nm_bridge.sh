@@ -40,7 +40,7 @@ nmcli con add type bridge-slave ifname $IFACE master bridge-br0
 #nmcli con modify bridge-slave-$IFACE connection.slave-type bridge
 nmcli con up bridge-br0
 
-systemctl restart NetworkManager
+#systemctl restart NetworkManager
 
 nmcli device show eno1 | grep GENERAL.CONNECTION
 nmcli device status
