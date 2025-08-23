@@ -31,8 +31,9 @@ add bridge=bridge_LAN tagged=ether2,ether3,bridge_LAN vlan-ids=10,20
 add address=192.168.88.1/24 interface=bridge_LAN network=192.168.88.0
 add address=172.16.10.1/24 interface=vlan10 network=172.16.10.0
 add address=172.16.20.1/24 interface=vlan20 network=172.16.20.0
-/ip dhcp-client
-add interface=ether1_WAN
+
+# /ip dhcp-client add interface=ether1_WAN
+
 /ip dhcp-server network
 add address=172.16.10.0/24 dns-server=172.16.10.1 gateway=172.16.10.1
 add address=172.16.20.0/24 dns-server=172.16.20.1 gateway=172.16.20.1

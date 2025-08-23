@@ -21,8 +21,9 @@ add bridge=bridge_LAN tagged=ether2,bridge_LAN untagged=ether3 vlan-ids=10
 add bridge=bridge_LAN tagged=ether2,bridge_LAN untagged=ether4 vlan-ids=20
 /ip address
 add address=192.168.88.20/24 interface=bridge_LAN network=192.168.88.0
-/ip dhcp-client
-add interface=ether1_MGMT
+
+#/ip dhcp-client add interface=ether1_MGMT
+
 /system clock
 set time-zone-autodetect=no time-zone-name=Europe/Kiev
 /system identity

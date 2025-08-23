@@ -6,9 +6,9 @@ IFACE=eno1
 LAN_CONN=LAN
 
 if nmcli connection show | grep -qw "bridge-br0"; then
-    echo "Міст br1 існує."
+    echo "Міст br0 існує."
 else
-    LAN_CONN_NAME=$(nmcli -t -f NAME,DEVICE connection show | grep ":$IFACE$" | cut -d: -f1)
+    LAN_CONN_NAME=$(nmcli -t -f NAME,DEVICE connection show | grep ":$IFACE" | cut -d: -f1)
     if [ -n "$LAN_CONN_NAME" ]; then
        echo "Видаляємо підключення: $LAN_CONN_NAME"
        nmcli connection delete "$LAN_CONN_NAME"
@@ -29,7 +29,7 @@ for CONN in $SLAVE_INTERFACES; do
     nmcli connection delete "$CONN"
 done
 
-if nmcli connection show | grep -qw "LAN_CONN"; then
+if nmcli connection show | grep -qw "$LAN_CONN"; then
     nmcli connection down $LAN_CONN
     nmcli connection delete $LAN_CONN
 fi
