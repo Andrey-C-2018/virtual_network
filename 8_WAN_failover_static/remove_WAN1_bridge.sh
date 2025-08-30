@@ -26,5 +26,6 @@ if ! nmcli connection show | grep -qw "$WAN1_CONN_NAME"; then
     echo "Restoring the WAN1 NM connection for dev $WAN1"
     nmcli connection add type ethernet con-name "$WAN1_CONN_NAME" ifname "$WAN1"
     nmcli connection modify "$WAN1_CONN_NAME" ipv4.method auto
+    nmcli connection modify "$WAN1_CONN_NAME" ipv6.method "disabled"
     nmcli connection up "$WAN1_CONN_NAME"
 fi
