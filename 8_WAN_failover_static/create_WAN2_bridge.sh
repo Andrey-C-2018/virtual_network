@@ -38,3 +38,5 @@ if ! ip link show dev tap-WAN2 &> /dev/null; then
    ip link set tap-WAN2 master $WAN2_BRIDGE
    ip link set tap-WAN2 up
 fi
+
+./firewall_WAN2_bridge.sh
